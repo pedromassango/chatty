@@ -4,8 +4,9 @@ Users can chat with others, see all other users and who he send messages. For br
 
 ## TODO
 
-- [ ] UI (Almost done)
-- [ ] Use Firebase
+- [x] Basic UI
+- [ ] Use Firebase (Create acount on Firebase page)
+- [ ] Login with Google
 - [ ] List Users
 - [ ] List Chats
 - [ ] Exchange Message
