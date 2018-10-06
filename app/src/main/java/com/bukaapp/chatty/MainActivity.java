@@ -1,11 +1,16 @@
 package com.bukaapp.chatty;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.bukaapp.chatty.fragmentos.FragmentoChats;
+import com.bukaapp.chatty.fragmentos.FragmentoContactos;
+import com.bukaapp.chatty.fragmentos.FragmentoPerfil;
 
 public class MainActivity extends AppCompatActivity
 implements TabLayout.OnTabSelectedListener {
@@ -16,6 +21,25 @@ implements TabLayout.OnTabSelectedListener {
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         //TODO: substituir fragmento
+
+        Fragment selectedFragment = null;
+
+        switch (tab.getPosition()){
+            case 0: selectedFragment = new FragmentoContactos();
+            break;
+            case 1: selectedFragment = new FragmentoChats();
+            break;
+            case 2: selectedFragment = new FragmentoPerfil();
+            break;
+        }
+
+        // Apresenta o fragmento selecionado
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout, selectedFragment)
+                .commit();
+
+
     }
 
     @Override
